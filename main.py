@@ -117,7 +117,7 @@ class LinuxDoBrowser:
         try:
             # 专门查找未点赞的按钮
             like_button = page.locator('.discourse-reactions-reaction-button[title="点赞此帖子"]').first
-            if like_button:
+            if like_button and random.random() < 0.05:  # 5% 的概率点击点赞
                 logger.info("找到未点赞的帖子，准备点赞")
                 like_button.click()
                 logger.info("点赞成功")
